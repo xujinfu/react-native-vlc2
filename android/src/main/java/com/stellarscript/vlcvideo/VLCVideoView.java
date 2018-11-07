@@ -147,6 +147,9 @@ public final class VLCVideoView extends SurfaceView {
 
         final Media newMedia = new Media(mLibVLC, newSourceUri);
         newMedia.setHWDecoderEnabled(true, false);
+        newMedia.addOption(":network-caching=200");
+        newMedia.addOption(":clock-jitter=0");
+        newMedia.addOption(":clock-synchro=0");
 
         if (startTime > 0) {
             final long startTimeInSeconds = startTime / 1000;
